@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     name: Run Tests
@@ -12,18 +17,18 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      
+
       - name: Install Dependencies
         run: npm install
-      
+
       - name: Run Tests
         run: npm test
-  
+
   deploy:
     name: Deploy to GitHub Pages
     needs: test
@@ -31,15 +36,30 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      
-      - name: Install Dependencies
-        run: npm install
-      
-      - name: Build Project
-        run: npm run build
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+
+      - name: Install Dependencies (Optional)
+        run: |
+          if [ -f "package.json" ]; then
+            npm install
+          else
+            echo "No package.json found, skipping install..."
+          fi
+
+      - name: Build Project (Optional)
+        run: |
+          if grep -q "\"build\":" package.json 2>/dev/null; then
+            npm run build
+          else
+            echo "No build step found, skipping..."
+          fi
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Static Files
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.PERSONALACCESSTOKEN }}
-          publish_dir: ./public
+          path: public
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
