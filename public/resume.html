@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Resume</title>
+    <title>Abhigyan Sanyal - Resume</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,25 +17,84 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        a {
+        h1, h2 {
+            color: #333;
+        }
+        .contact-info, .skills, .experience, .education {
+            margin-bottom: 20px;
+        }
+        .download-btn {
             display: inline-block;
             margin-top: 20px;
-            text-decoration: none;
             padding: 10px 15px;
             background-color: #007bff;
             color: white;
             border-radius: 5px;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="resume-container">
-        <h1>My Resume</h1>
-        <p><strong>Name:</strong> Abhigyan Sanyal</p>
-        <p><strong>Experience:</strong> DevOps Engineer | AWS Certified</p>
-        <p><strong>Skills:</strong> Kubernetes, AWS, Terraform, CI/CD, GitHub Actions</p>
-        <p><strong>Projects:</strong> EKS Deployments, Cloud Migrations, Security Hardening</p>
-        <button class="Go Back" onclick="window.location.href='/index.html'">Go Back</button>      
+        <h1>Abhigyan Sanyal</h1>
+        <h2>DevOps Engineer</h2>
+        <p>Highly motivated DevOps Engineer with expertise in AWS, Infrastructure as Code (IaC), Kubernetes, CI/CD, and cloud security. Passionate about automating cloud workflows and implementing security best practices.</p>
+        
+        <div class="contact-info">
+            <h2>Contact Details</h2>
+            <p><strong>Phone:</strong> 9113885198</p>
+            <p><strong>Email:</strong> <a href="mailto:asanyal704@gmail.com">asanyal704@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/abhigyansanyal98" target="_blank">linkedin.com/in/abhigyansanyal98</a></p>
+        </div>
+        
+        <div class="experience">
+            <h2>Work Experience</h2>
+            <h3>DevOps Engineer 2 - Flexiloans (Sep 2023 - Present)</h3>
+            <ul>
+                <li>Automated and managed 15+ daily production deployments using GitHub Actions & Jenkins.</li>
+                <li>Designed and maintained a resilient AWS-based infrastructure.</li>
+                <li>Implemented Infrastructure as Code (IaC) using Terraform and CloudFormation.</li>
+                <li>Enforced security best practices (IAM, RBAC, PoLP, etc.).</li>
+                <li>Optimized AWS costs by 68% (~$3,000/month).</li>
+                <li>Engineered a warm standby Disaster Recovery (DR) setup across AWS regions.</li>
+            </ul>
+            
+            <h3>Senior Software Engineer - Capgemini (Aug 2021 – Sep 2023)</h3>
+            <ul>
+                <li>Built and maintained scalable AWS infrastructure.</li>
+                <li>Developed CI/CD pipelines using Jenkins.</li>
+                <li>Implemented centralized logging & monitoring (CloudWatch, Datadog, Grafana).</li>
+                <li>Ensured compliance with security best practices.</li>
+            </ul>
+        </div>
+        
+        <div class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li><strong>Cloud & Platforms:</strong> AWS</li>
+                <li><strong>OS & Administration:</strong> Linux</li>
+                <li><strong>Security & Compliance:</strong> IAM, WAF, Security Hub, GuardDuty</li>
+                <li><strong>DevOps & Automation:</strong> Terraform, CloudFormation, AWS CLI</li>
+                <li><strong>CI/CD & Containers:</strong> GitHub Actions, Jenkins, Docker, Kubernetes</li>
+                <li><strong>Monitoring & Logging:</strong> CloudWatch, CloudTrail, Datadog, Grafana</li>
+            </ul>
+        </div>
+        
+        <div class="education">
+            <h2>Education</h2>
+            <p><strong>B-Tech in Computer Science & Engineering</strong></p>
+            <p>Ramaiah University of Applied Sciences, Class of 2021</p>
+        </div>
+        
+        <div class="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>AWS Certified Solutions Architect - Associate (July 2024 - July 2027)</li>
+                <li>AWS Certified Developer - Associate (Dec 2021 - Dec 2024)</li>
+            </ul>
+        </div>
+        
+        <a class="download-btn" href="resume.pdf" download>Download Resume (PDF)</a>
     </div>
 </body>
 </html>
