@@ -29,23 +29,29 @@ jobs:
       - name: Run Tests
         run: npm test
 
-  deploy:
-    name: Deploy to GitHub Pages
+  build:
+    name: Build and Validate
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install Dependencies (Optional)
-        run: |
-          if [ -f "package.json" ]; then
-            npm install
-          else
-            echo "No package.json found, skipping install..."
-          fi
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Build Project (Optional)
+      - name: Run Build
+        run: npm run build
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Build Project
         run: |
           if grep -q "\"build\":" package.json 2>/dev/null; then
             npm run build
